@@ -25,11 +25,7 @@ var faceStream = face.toObservable('data')
 
 faceStream
     .where(function (face) {
-        if (face) { 
-            return face.confidence <= -1; 
-        } else {
-            return true;
-        }
+            return !face || face.confidence <= -1; 
     })
      .subscribe(function () {
         console.log("NO FACE DETECTED");
