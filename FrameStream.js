@@ -16,7 +16,6 @@ function FrameStream() {
    for (var i = 3; i < nrOfBytesPrImage; i+=4) {
        this.rgba[i] = 0; // Alpha channel should be 0, no need to parse, even noe need to set it except init
    }
-
 }
 
 FrameStream.prototype._transform = function(chunk, encoding, done) { 
