@@ -1,1 +1,4 @@
-this is the code for the node.js part at my NDC 2013 talk
+This branch is example 1
+
+It will pipe video from file to console, and from file to player
+and pipe video from drone to console and drone to player
