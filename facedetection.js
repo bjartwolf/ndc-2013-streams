@@ -11,10 +11,6 @@ videoStream.pipe(player.stdin);
 var faceDetector = require('./FaceDetectionStream');
 videoStream.pipe(faceDetector.stdin);
 
-// Print the stream
-//var Serializer = require('./serializer');
-//faceDetector.stdout.pipe(new Serializer()).pipe(process.stdout)
-
 // RX PART
 // *******
 var rx = require('rx');
