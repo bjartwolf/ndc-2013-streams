@@ -23,8 +23,8 @@ events.EventEmitter.prototype.toObservable = require('./toObservable.js');
 rx.Observable.prototype.rxpipe = require('./writeToStream').writeToStream;
 
 
-var ardrone = require('ar-drone');
-var drone = ardrone.createClient();
+var droneModule = require('./droneDataStream.js');
+var drone = droneModule.drone; 
 drone.takeoff();
 drone.after(5000, function () {
     drone.up(0.1);
@@ -34,16 +34,13 @@ drone.after(5000, function () {
 altitude = 0;
 setInterval(function () { altitude += 0.08; drone.emit('navdata', {demo: {altitudeMeters: altitude}});} , 100);
 
-// poster all navdata
-var Poster = require('poster');
-var navdataPost = new Poster('http://localhost:40000/navdata');
-navDataj
-faceDetector.stdout.on('data', function (faces) {
-    request.post({ url: 'http://localhost:40000/faces',
-                   json: faces});
-});
+// poster all navdata using a writable stream
+var Poster = require('./poster');
+droneModule.navDataStream.pipe(new Poster('http://localhost:40000/navdata'));
+faceDetector.stdout.pipe(new Poster('http://localhost:40000/faces'));
 
 
+// Delete this, this is just to see that the data actually is posted 
 var express = require('express');
 var app = express();
 app.use(express.bodyParser());
