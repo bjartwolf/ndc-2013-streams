@@ -11,18 +11,5 @@ var db = levelup('./navdataDB', {
      valueEncoding: "json"});
 var dbWriteStream = db.createWriteStream();
 
-var arDrone = require('ar-drone');
-var drone = arDrone.createClient();
-
-var navDataStream = new stream.Readable(
-  {objectMode: true}); 
-
-navDataStream._read = function () {};
-
-client.on('navdata', function (chunk) {
-  navDataStream.push({
-    key: Date.now(),
-    value: chunk});
-});
-
+var navDataStream = require('./droneDataStream.js');
 navDataStream.pipe(dbWriteStream);
