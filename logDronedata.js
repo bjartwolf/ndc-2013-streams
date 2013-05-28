@@ -1,6 +1,6 @@
 // Write video to file
 var fs = require('fs');
-var videoOutStream = fs.createWriteStream('droneCopy.mp4');
+var videoOutStream = fs.createWriteStream('droneVideo.mp4');
 var videoStream = require('./droneVideoStream');
 videoStream.pipe(videoOutStream);
 
@@ -9,7 +9,7 @@ videoStream.pipe(videoOutStream);
 var levelup = require('levelup');
 var db = levelup('./navdataDB', {
      valueEncoding: "json"});
-var dbWriteStream = db.createWriteStream();
 
+// Pipe dronedata to database
 var navDataStream = require('./droneDataStream.js');
-navDataStream.pipe(dbWriteStream);
+navDataStream.pipe(db.createWriteStream());
