@@ -22,6 +22,7 @@ var events= require('events');
 events.EventEmitter.prototype.toObservable = require('./toObservable.js');
 rx.Observable.prototype.rxpipe = require('./writeToStream').writeToStream;
 
+
 var ardrone = require('ar-drone');
 var drone = ardrone.createClient();
 drone.takeoff();
@@ -34,12 +35,9 @@ altitude = 0;
 setInterval(function () { altitude += 0.08; drone.emit('navdata', {demo: {altitudeMeters: altitude}});} , 100);
 
 // poster all navdata
-var request = require('request');
-drone.on('navdata', function (navdata) {
-    request.post( {url: 'http://localhost:40000/navdata',
-                   json: navdata});
-});
-// poster faces
+var Poster = require('poster');
+var navdataPost = new Poster('http://localhost:40000/navdata');
+navDataj
 faceDetector.stdout.on('data', function (faces) {
     request.post({ url: 'http://localhost:40000/faces',
                    json: faces});
