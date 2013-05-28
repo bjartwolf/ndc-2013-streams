@@ -8,10 +8,11 @@ var navDataStream = new stream.Readable(
 
 navDataStream._read = function () {};
 
-client.on('navdata', function (chunk) {
+drone.on('navdata', function (chunk) {
   navDataStream.push({
     key: Date.now(),
     value: chunk});
 });
 
-module.exports = navDataStream;
+module.exports.navDataStream = navDataStream;
+module.exports.drone = drone;
