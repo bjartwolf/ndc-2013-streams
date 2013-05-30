@@ -11,10 +11,6 @@ videoStream.pipe(player.stdin);
 var faceDetector = require('./FaceDetectionStream');
 videoStream.pipe(faceDetector.stdin);
 
-// Print the stream
-//var Serializer = require('./serializer');
-//faceDetector.stdout.pipe(new Serializer()).pipe(process.stdout)
-
 // RX PART
 // *******
 var rx = require('rx');
@@ -39,8 +35,8 @@ var Poster = require('./poster');
 droneModule.navDataStream.pipe(new Poster('http://localhost:40000/navdata'));
 faceDetector.stdout.pipe(new Poster('http://localhost:40000/faces'));
 
-
 // Delete this, this is just to see that the data actually is posted 
+/*
 var express = require('express');
 var app = express();
 app.use(express.bodyParser());
@@ -54,4 +50,4 @@ app.post('/navdata', function (req, res) {
     });
 
 app.listen(40000);
-
+*/
