@@ -12,7 +12,7 @@ var db = levelup('./navdataDB', {
 
 // Pipe dronedata to database
 var droneData = require('./droneDataStream.js')
-navDataStream.navDataStream.pipe(db.createWriteStream());
+droneData.navDataStream.pipe(db.createWriteStream());
 
 var drone = droneData.drone;
 drone.takeoff();
