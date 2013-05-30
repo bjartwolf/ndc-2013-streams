@@ -18,9 +18,6 @@ var drone = droneData.drone;
 drone.takeoff();
 drone
     .after(5000, function () {
-        this.clockwise(0.5);
-    })
-    .after(1000, function () {
         this.up(0.1);
     })
     .after(1000, function () {
