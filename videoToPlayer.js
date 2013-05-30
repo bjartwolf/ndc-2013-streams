@@ -1,7 +1,8 @@
 // Part One
 // *********
 var fs = require('fs');
-var player = require('./ffplay'); 
+//var player = require('./ffplay'); 
+var player = require('./mplayer'); 
 //var videoStream = fs.createReadStream('drone.mp4');
 
 var videoStream = require('./droneVideoStream');
