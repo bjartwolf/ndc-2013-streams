@@ -1,8 +1,5 @@
-// Part One
-// *********
 var fs = require('fs');
-var player = require('./ffplay'); 
 var videoStream = fs.createReadStream('ytdl.mp4');
-//var videoStream = require('./httpMovieStream'); 
-//var videoStream = require('./droneVideoStream');
+//var videoStream = require('./droneVideoStream'); 
+var player = require('./ffplay'); 
 videoStream.pipe(player.stdin);

@@ -5,7 +5,7 @@ var ffplay = spawn('ffplay', [
     '-autoexit',
     '-'
 //    '-i', '-'
-  ]
+  ], {stdio: ['pipe', 'ignore', 'ignore']}
 );
-ffplay.on('error', function (err) { console.log(err);});
+
 module.exports = ffplay;
