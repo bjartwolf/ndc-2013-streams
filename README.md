@@ -1,12 +1,11 @@
-
 this is the code for the node.js part at my NDC 2013 talk
 
 # Pipe video to player
 
 ## Pipe from file to player
 Prerecorded, no slides since it's so obvious.
-Just stress that streams are chunks, so you don't have to read the file into memory etc.
-Stream could just as well be from http, streamed over the internet
+__Stress that streams are chunks, so you don't have to read the entire file into memory etc.__
+Stream could just as well be from http, streamed over the internet. Possible demonstrate that with the httpMovieStream.js
 Play from file (ytdl.mp4) 
 ```javascript
 videoStream.pipe(player.stdin);
@@ -16,8 +15,8 @@ Play from droneVideoStream
 ```javascript
 videoStream.pipe(player.stdin);
 ```
-Show that droneVideoStream is a stream made of streams
-Stress the point here that this is an infinite series
+__Show that droneVideoStream is a stream made of streams__
+__Stress the point here that this is an infinite series, the drone has not yet produced the video__
 ![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/20130530_123049.jpg)
 
 # Pipe video to file
@@ -44,7 +43,7 @@ db.createReadStream().pipe(new Slowstream()).pipe(process.stdout);
 ```
 # Show facedetection stream
 Show slide
-Introduce different types in data, JSON objects, buffers, strings 
+__Stress that streams, though "normally" are buffers and strings, can be JSON objects etc.__
 Very much like an eventemitter with objects (but with pause and buffering etc)
 ![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/20130530_125059.jpg)
 
