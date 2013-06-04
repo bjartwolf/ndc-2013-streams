@@ -4,7 +4,9 @@ this is the code for the node.js part at my NDC 2013 talk
 # Pipe video to player
 
 ## Pipe from file to player
-Prerecorded, no slides
+Prerecorded, no slides since it's so obvious.
+Just stress that streams are chunks, so you don't have to read the file into memory etc.
+Stream could just as well be from http, streamed over the internet
 Play from file (ytdl.mp4) 
 ```javascript
 videoStream.pipe(player.stdin);
@@ -54,4 +56,10 @@ Especially when writing from Rx back into a pipe.... Hopefully someone smart doe
 ![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/20130530_125646.jpg)
 
 
+# Thanks you's and the like
+I've learned a lot from here:
+https://github.com/substack/stream-handbook
 
+Isaacs, bnoordhuis and ningu helped me out getting some of the new streams to work as intended.
+
+And felixge for putting the nodecopter module out there.
