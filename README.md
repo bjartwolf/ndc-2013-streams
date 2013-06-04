@@ -21,7 +21,7 @@ Play back video if time (but not so important, as it's the same as the previous,
 # Pipe navdata to a database as well
 Show the droneDataStream.js 
 Using logdata.js
-![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/20130530_124019(0).jpg)
+![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/savenavdata.jpg)
    
 # Play back again if time using playDroneData.js
 No slides, just piping data out again
