@@ -56,15 +56,11 @@ var height= drone.toObservable('navdata')
 height.combineLatest(obsFaces, function (height, face) {
         return {height: height, face:face};
     })
-    .where(function (comb) {
-        return comb.face && comb.face.confidence > 1;
-    })
-    .where(function (comb) {
-        return comb.height > 2;
+    .where(function (x) {
+        return x.face && x.face.confidence > 1 && x.height > 2;
     })
     .take(1)
-    .subscribe(function () {
-        console.log(' **** LA OSS LANDE!!! **** ');
+    .subscribe(function () { console.log(' **** LA OSS LANDE!!! **** ');
         drone.stop();
         drone.land();
     });
