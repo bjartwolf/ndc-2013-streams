@@ -8,7 +8,7 @@ Prerecorded, no slides
 # Pipe video from drone to player
 Show slide
 Show that droneVideoStream is a stream made of streams
-![test slide](https://github.com/bjartwolf/ndc-2013-streams/blob/master/presentation/20130530_123049.jpg)
+![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/20130530_123049.jpg)
 
 # Pipe video to file
 Show slide
