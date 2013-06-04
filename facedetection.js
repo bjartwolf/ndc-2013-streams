@@ -23,11 +23,13 @@ var obsFaces = faceDetector.stdout.toObservable('data')
         return faces[0];
     });
 
-obsFaces
+var foundFaces = 
+    obsFaces
     .where(function (face) {
         return (face && face.confidence > 1);
-    })
-    .select(function (face) {
+    });
+
+foundFaces.select(function (face) {
         return 'Face at found. Width is ' + face.width + '\n';
     })
     .rxpipe(process.stdout);
@@ -54,14 +56,19 @@ var height= drone.toObservable('navdata')
     .where(function(navdata) { return navdata && navdata.demo && navdata.demo.altitudeMeters;})
     .select(function(navdata) { return navdata.demo.altitudeMeters;})
 
-var sendtLandesignal;
-height.combineLatest(obsFaces, function (height, face) {
-    if (face && face.confidence > 1 && height > 2) {
-        if (!sendtLandesignal) {
-            console.log(' **** LA OSS LANDE!!! **** ');
-            drone.stop();
-            drone.land();
-            sendtLandesignal = true; 
-        }
-    }
-}).subscribe(function () { ;});
+height.combineLatest(foundFaces, function (height, face) {
+        return {height: height, face:face};
+    })
+    .where(function (comb) {
+        console.log(comb);
+        return comb.face || comb.face.confidence > 1;
+    })
+    .where(function (comb) {
+        return comb.height > 2;
+    })
+    .take(1)
+    .subscribe(function () {
+        console.log(' **** LA OSS LANDE!!! **** ');
+        drone.stop();
+        drone.land();
+    });
