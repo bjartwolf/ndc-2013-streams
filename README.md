@@ -47,6 +47,10 @@ __Stress that streams, though "normally" are buffers and strings, can be JSON ob
 Very much like an eventemitter with objects (but with pause and buffering etc)
 ![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/20130530_125059.jpg)
 
+# Notice how streams are introduced
+__pipe__
+That is it.
+
 # Introduce Rx  
 Can pipe this object-type stream into Rx for processing
 (this will break things as buffering and backpressure, this is just a hack I'm doing)
