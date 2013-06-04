@@ -4,7 +4,9 @@ this is the code for the node.js part at my NDC 2013 talk
 
 # Pipe data from video to player
 Prerecorded, no slides
-
+```javascript
+videoStream.pipe(player.stdin);
+```
 # Pipe video from drone to player
 Show slide
 Show that droneVideoStream is a stream made of streams
