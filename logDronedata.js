@@ -15,6 +15,7 @@ var droneData = require('./droneDataStream.js')
 droneData.navDataStream.pipe(db.createWriteStream());
 
 var drone = droneData.drone;
+drone.disableEmergency();
 drone.takeoff();
 drone
     .after(5000, function () {

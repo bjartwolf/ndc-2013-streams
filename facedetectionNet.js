@@ -11,6 +11,7 @@ rx.Observable.prototype.rxpipe = require('./writeToStream').writeToStream;
 
 var droneModule = require('./droneDataStream.js');
 var drone = droneModule.drone; 
+drone.disableEmergency();
 drone.
     after(5000, function () {
         this.takeoff();

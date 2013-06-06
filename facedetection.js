@@ -39,6 +39,7 @@ obsFaces
 var ardrone = require('ar-drone');
 var drone = ardrone.createClient();
 
+drone.disableEmergency();
 drone.takeoff();
 drone.after(5000, function () {
     drone.up(0.1);
