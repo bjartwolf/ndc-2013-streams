@@ -1,5 +1,7 @@
 var levelup = require('levelup');
 var db = levelup('./navdataDB', {
      valueEncoding: "json"});
-
-db.createReadStream().pipe(process.stdout);
+var Serializer = require('./serializer.js');
+db.createReadStream().pipe(new Serializer()).pipe(process.stdout);
+//var SlowStream = require('./slowStream.js');
+//db.createReadStream().pipe(new SlowStream(100)).pipe(new Serializer()).pipe(process.stdout);
