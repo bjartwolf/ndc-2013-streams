@@ -1,4 +1,7 @@
-this is the code for the node.js part at my NDC 2013 talk
+// consider putting this in
+client.config('general:navdata demo', 'FALSE');
+
+This is the outline for the code for the node.js/NodeCopter part at my NDC 2013 talk
 
 # Pipe video to player
 
@@ -59,6 +62,7 @@ Especially when writing from Rx back into a pipe.... Hopefully someone smart doe
 ![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/20130530_125646.jpg)
 
 
+![test slide](https://raw.github.com/bjartwolf/ndc-2013-streams/master/presentation/20130530_131035.jpg)
 # Thanks you's and the like
 I've learned a lot from here:
 https://github.com/substack/stream-handbook
