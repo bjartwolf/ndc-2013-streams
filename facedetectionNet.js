@@ -32,8 +32,8 @@ request('http://localhost:50935/programs/' + programId, function (error, res, bo
     if (!error && res.statusCode == 200) {
         drone.stop();
         drone.land();
- console.log("BODY: " + body);
- console.log("LANDING");
+        console.log("BODY: " + body);
+        console.log("LANDING");
     } else {
         console.log("shit, this demo is broken...");
         drone.animate('flipLeft', 1500);

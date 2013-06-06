@@ -60,7 +60,8 @@ height.combineLatest(obsFaces, function (height, face) {
         return x.face && x.face.confidence > 1 && x.height > 2;
     })
     .take(1)
-    .subscribe(function () { console.log(' **** LA OSS LANDE!!! **** ');
+    .subscribe(function () { 
+        console.log(' **** LA OSS LANDE!!! **** ');
         drone.stop();
         drone.land();
     });
